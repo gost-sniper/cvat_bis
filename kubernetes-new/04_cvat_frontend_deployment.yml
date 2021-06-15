@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cvat-frontend
+  namespace: cvat
+  labels:
+    app: cvat-app
+    tier: frontend
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: cvat-app
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        app: cvat-app
+        tier: frontend
+    spec:
+      containers:
+        - name: cvat-frontend-app-container
+          image: humbertomurcia/projects:cvat_ui
+          imagePullPolicy: Always
+          ports:
+          - containerPort: 80
+          resources: {}
+          env:
+          - name: REACT_APP_API_URL
+            value: "cvat-backend-service"

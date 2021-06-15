@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: cvat
+    namespace: cvat
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: cvat
+    strategy:
+        type: Recreate
+    template:
+        metadata:
+            labels: 
+                app: cvat
+        spec:
+          containers:
+          - env:
+            - name: ALLOWED_HOSTS
+              value: '*'
+            - name: CVAT_POSTGRES_HOST
+              value: cvat-db
+            - name: CVAT_REDIS_HOST
+              value: cvat-redis
+            - name: DJANGO_MODWSGI_EXTRA_ARGS  
+              value: ""
+            - name: UI_PORT
+              value: "9080"            
+            name: cvat
+            ports:
+            - containerPort: 8080
+            image: openvino/cvat_server
+            volumeMounts:
+            - mountPath: /home/django/data
+              name: cvat-data
+            - mountPath: /home/django/keys
+              name: cvat-keys
+            - mountPath: /home/django/logs
+              name: cvat-logs
+            - mountPath: /home/django/models
+              name: cvat-models  
+          volumes:
+          - name: cvat-data
+            persistentVolumeClaim:
+              claimName: cvat-data
+          - name: cvat-keys
+            persistentVolumeClaim:
+              claimName: cvat-keys
+          - name: cvat-logs
+            persistentVolumeClaim:
+              claimName: cvat-logs
+          - name: cvat-models
+            persistentVolumeClaim:
+              claimName: cvat-models
+          restartPolicy: Always              
+      

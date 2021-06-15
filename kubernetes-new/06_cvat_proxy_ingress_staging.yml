@@ -1,0 +1,204 @@
+kind: Ingress
+apiVersion: extensions/v1beta1
+metadata:
+  name: cvat-ingress
+  namespace: cvat
+  selfLink: /apis/extensions/v1beta1/namespaces/cvat/ingresses/cvat-ingress
+  uid: 152be017-496f-4af9-a331-ffa8f89033ef
+  resourceVersion: "150069588"
+  generation: 12
+  creationTimestamp: 2021-04-12T08:58:59Z
+  labels:
+    app: cvat
+    env: staging
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/use-regex: "true"
+  managedFields:
+    - manager: nginx-ingress-controller
+      operation: Update
+      apiVersion: networking.k8s.io/v1beta1
+      time: 2021-04-12T08:59:44Z
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:loadBalancer:
+            f:ingress: {}
+    - manager: Mozilla
+      operation: Update
+      apiVersion: extensions/v1beta1
+      time: 2021-04-13T08:55:26Z
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:kubernetes.io/ingress.class: {}
+            f:nginx.ingress.kubernetes.io/use-regex: {}
+          f:labels:
+            .: {}
+            f:app: {}
+            f:env: {}
+        f:spec:
+          f:rules: {}
+          f:tls: {}
+spec:
+  tls:
+    - hosts:
+        - cvat-staging.imatod.com
+      secretName: wildcard-imatod-tls-file
+    - hosts:
+        - cvat.staging.imatod.com
+      secretName: wildcard-staging-imatod-tls-file
+    - hosts:
+        - cvat.staging.aws.imatod.com
+      secretName: wildcard-staging-aws-imatod-tls-file
+  rules:
+    - host: cvat-staging.imatod.com
+      http:
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+            backend:
+              serviceName: cvat-frontend-service
+              servicePort: 80
+          - path: /(api/.*)
+            pathType: ImplementationSpecific
+            backend:
+              serviceName: cvat-backend-service
+              servicePort: 8080
+          - path: /(documentation/.*)
+            pathType: ImplementationSpecific
+            backend:
+              serviceName: cvat-backend-service
+              servicePort: 8080
+          - path: /(admin(:(.*))?.*)
+            pathType: ImplementationSpecific
+            backend:
+              serviceName: cvat-backend-service
+              servicePort: 8080
+          - path: /(static/.*)
+            pathType: ImplementationSpecific
+            backend:
+              serviceName: cvat-backend-service
+              servicePort: 8080
+          - path: /(analytics/.*)
+            pathType: ImplementationSpecific
+            backend:
+              serviceName: cvat-backend-service
+              servicePort: 8080
+          - path: /(opencv/.*)
+            pathType: ImplementationSpecific
+            backend:
+              serviceName: cvat-backend-service
+              servicePort: 8080
+          - path: /(django-rq(:(.*))?.*)
+            pathType: ImplementationSpecific
+            backend:
+              serviceName: cvat-backend-service
+              servicePort: 8080
+          - path: /(git/.*)
+            pathType: ImplementationSpecific
+            backend:
+              serviceName: cvat-backend-service
+              servicePort: 8080
+    - host: cvat.staging.imatod.com
+      http:
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+            backend:
+              serviceName: cvat-frontend-service
+              servicePort: 80
+          - path: /(api/.*)
+            pathType: ImplementationSpecific
+            backend:
+              serviceName: cvat-backend-service
+              servicePort: 8080
+          - path: /(documentation/.*)
+            pathType: ImplementationSpecific
+            backend:
+              serviceName: cvat-backend-service
+              servicePort: 8080
+          - path: /(admin(:(.*))?.*)
+            pathType: ImplementationSpecific
+            backend:
+              serviceName: cvat-backend-service
+              servicePort: 8080
+          - path: /(static/.*)
+            pathType: ImplementationSpecific
+            backend:
+              serviceName: cvat-backend-service
+              servicePort: 8080
+          - path: /(analytics/.*)
+            pathType: ImplementationSpecific
+            backend:
+              serviceName: cvat-backend-service
+              servicePort: 8080
+          - path: /(opencv/.*)
+            pathType: ImplementationSpecific
+            backend:
+              serviceName: cvat-backend-service
+              servicePort: 8080
+          - path: /(django-rq(:(.*))?.*)
+            pathType: ImplementationSpecific
+            backend:
+              serviceName: cvat-backend-service
+              servicePort: 8080
+          - path: /(git/.*)
+            pathType: ImplementationSpecific
+            backend:
+              serviceName: cvat-backend-service
+              servicePort: 8080
+    - host: cvat.staging.aws.imatod.com
+      http:
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+            backend:
+              serviceName: cvat-frontend-service
+              servicePort: 80
+          - path: /(api/.*)
+            pathType: ImplementationSpecific
+            backend:
+              serviceName: cvat-backend-service
+              servicePort: 8080
+          - path: /(documentation/.*)
+            pathType: ImplementationSpecific
+            backend:
+              serviceName: cvat-backend-service
+              servicePort: 8080
+          - path: /(admin(:(.*))?.*)
+            pathType: ImplementationSpecific
+            backend:
+              serviceName: cvat-backend-service
+              servicePort: 8080
+          - path: /(static/.*)
+            pathType: ImplementationSpecific
+            backend:
+              serviceName: cvat-backend-service
+              servicePort: 8080
+          - path: /(analytics/.*)
+            pathType: ImplementationSpecific
+            backend:
+              serviceName: cvat-backend-service
+              servicePort: 8080
+          - path: /(opencv/.*)
+            pathType: ImplementationSpecific
+            backend:
+              serviceName: cvat-backend-service
+              servicePort: 8080
+          - path: /(django-rq(:(.*))?.*)
+            pathType: ImplementationSpecific
+            backend:
+              serviceName: cvat-backend-service
+              servicePort: 8080
+          - path: /(git/.*)
+            pathType: ImplementationSpecific
+            backend:
+              serviceName: cvat-backend-service
+              servicePort: 8080
+status:
+  loadBalancer:
+    ingress:
+      - hostname: a3e76fb112f3211ea802e0abd0fca31c-ffc16ae9ae32228f.elb.eu-west-1.amazonaws.com

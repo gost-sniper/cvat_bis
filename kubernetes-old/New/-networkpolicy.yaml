@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: network-cvat-network-policy
+  creationTimestamp: null
+  namespace: cvat
+spec:
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          network: "true"
+  podSelector:
+    matchLabels:
+      network: "true"

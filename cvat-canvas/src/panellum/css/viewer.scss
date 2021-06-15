@@ -1,0 +1,146 @@
+@import '../../scss/canvas.scss';
+
+/* default */
+.pnlm-default-hotspot {
+    height: 6px;
+    width: 6px;
+    border-radius: 13px;
+    background-color: #dbdbdb;
+    border-color: #000000;
+    border-style: solid;
+    border-width: 2px;
+    /*base*/
+    position: absolute;
+    visibility: hidden;
+    cursor: default;
+    vertical-align: middle;
+    top: 0;
+    z-index: 1;
+}
+.pnlm-default-hotspot:hover {
+    background-color: rgba(253, 47, 10, 0.2);
+}
+.pnlm-default-hotspott.pnlm-info {
+    background-position: 0 -104px;
+}
+.pnlm-default-hotspot.pnlm-scene {
+    background-position: 0 -130px;
+}
+
+/* default */
+
+/* door */
+.pnlm-door-hotspot {
+    height: 6px;
+    width: 6px;
+    border-radius: 13px;
+    background-color: #00ffff;
+    border-color: #ffffff;
+    border-style: solid;
+    border-width: 2px;
+    /*base*/
+    position: absolute;
+    visibility: hidden;
+    cursor: default;
+    vertical-align: middle;
+    top: 0;
+    z-index: 1;
+}
+.pnlm-door-hotspot:hover {
+    background-color: rgba(253, 47, 10, 0.2);
+}
+.pnlm-door-hotspott.pnlm-info {
+    background-position: 0 -104px;
+}
+.pnlm-door-hotspot.pnlm-scene {
+    background-position: 0 -130px;
+}
+
+/* door */
+
+/* window */
+.pnlm-window-hotspot {
+    height: 6px;
+    width: 6px;
+    border-radius: 13px;
+    background-color: #9900ff;
+    border-color: #ffffff;
+    border-style: solid;
+    border-width: 2px;
+    /*base*/
+    position: absolute;
+    visibility: hidden;
+    cursor: default;
+    vertical-align: middle;
+    top: 0;
+    z-index: 1;
+}
+.pnlm-window-hotspot:hover {
+    background-color: rgba(253, 47, 10, 0.2);
+}
+.pnlm-window-hotspott.pnlm-info {
+    background-position: 0 -104px;
+}
+.pnlm-window-hotspot.pnlm-scene {
+    background-position: 0 -130px;
+}
+
+/* window */
+
+/* wall-corner */
+.pnlm-wall-corner-hotspot {
+    height: 6px;
+    width: 6px;
+    border-radius: 13px;
+    background-color: #ff6600;
+    border-color: #ffffff;
+    border-style: solid;
+    border-width: 2px;
+    /*base*/
+    position: absolute;
+    visibility: hidden;
+    cursor: default;
+    vertical-align: middle;
+    top: 0;
+    z-index: 1;
+}
+.pnlm-wall-corner-hotspot:hover {
+    background-color: rgba(253, 47, 10, 0.2);
+}
+.pnlm-wall-corner-hotspott.pnlm-info {
+    background-position: 0 -104px;
+}
+.pnlm-wall-corner-hotspot.pnlm-scene {
+    background-position: 0 -130px;
+}
+
+/* wall-corner  */
+
+/* stairs */
+.pnlm-stairs-hotspot {
+    height: 6px;
+    width: 6px;
+    border-radius: 13px;
+    background-color: #ff006a;
+    border-color: #ffffff;
+    border-style: solid;
+    border-width: 2px;
+    /*base*/
+    position: absolute;
+    visibility: hidden;
+    cursor: default;
+    vertical-align: middle;
+    top: 0;
+    z-index: 1;
+}
+.pnlm-stairs-hotspot:hover {
+    background-color: rgba(253, 47, 10, 0.2);
+}
+.pnlm-stairs-hotspott.pnlm-info {
+    background-position: 0 -104px;
+}
+.pnlm-stairs-hotspot.pnlm-scene {
+    background-position: 0 -130px;
+}
+
+/* stairs  */

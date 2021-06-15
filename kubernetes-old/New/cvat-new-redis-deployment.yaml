@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: cvat-redis
+    namespace: cvat
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: cvat-redis
+    strategy: {}
+    template:
+        metadata:
+            creationTimestamp: null
+            labels:
+                app: cvat-redis
+        spec:
+            containers:
+            - image: redis:4.0-alpine
+              name: cvat-redis
+              resources: {}
+            restartPolicy: Always
+            serviceAccountName: ""
+            volumes: null
+status: {}            
